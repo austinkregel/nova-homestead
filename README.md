@@ -76,6 +76,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## libvirt-php auto complete
 At the moment there's a script called `build-doc.php` which will extract all methods from the libvirt library and put it into the `.phpstorm.meta.php` file. The logic of what happens within those methods can only be find in the `./docker/php/libvirt-php/src` directory in the original C/C++ code.
 
+## Abstraction
+The underlying APIs of this package don't require [Laravel Nova](https://nova.laravel.com) and can be used outside of it. You'll just need to ensure `illuminate/support` at any version >5.0.
 
 ## Security
 If you discover any security related issues, please email [security@metabit.services](mailto:security@metabit.services?subject=Potential+security+issue+with+nova+homestead) instead of using the issue tracker.
