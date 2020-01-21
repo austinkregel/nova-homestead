@@ -7,6 +7,21 @@ Have you ever just wanted an interface for managing your virtual machines, and n
 
 This package does currently support remote management, so assuming you have all the ports open to the server this app is hosted from, and the user you're connecting as has permissions to access all the files, you could host this app on a DigitalOcean server and manage a VM server in your house. :wink:
 
+### Quick Nav
+  - [What's the alternative](#whats-the-alternative)
+  - [Project goal](#goal)
+  - [Before we begin](#before-we-begin)
+  - [Installing libvirt-php from this package](#installing-libvirt-php-from-this-package)
+  - [Installing a VNC Client](#installing-a-vnc-client)
+  - [Managing VNC](#managing-vnc)
+  - [Permissions](#permissions)
+  - [Developing/contributing to this project](#developingcontributing-to-this-project)
+  - [Libvirt-php auto complete](#libvirt-php-auto-complete)
+  - [Using the LibvirtService class outside nova](#abstraction)
+  - [Security](#security)
+  - [License](#license)
+  - [Support me or this package](#support)
+
 ### What's the alternative?  
 Well, for this specific piece of software, I'm not aware of many alternatives... (They probably exist...)
 
@@ -99,6 +114,8 @@ Ensure that the user has access to the group `libvirt-qemu`. Usually this mean r
 # Developing/Contributing to this project
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
+## Release notes
+As this projects gets built out further and further, you can keep track of the releases on [Changelager](https://nova-homestead.changed.to/1274).
 
 ## libvirt-php auto complete
 At the moment there's a script called `build-doc.php` which will extract all methods from the libvirt library and put it into the `.phpstorm.meta.php` file. The logic of what happens within those methods can only be find in the `./docker/php/libvirt-php/src` directory in the original C/C++ code.
@@ -112,8 +129,5 @@ If you discover any security related issues, please email [security@metabit.serv
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/austinkregel/nova-homestead/badge.svg?style=beer-square)](https://beerpay.io/austinkregel/nova-homestead)  [![Beerpay](https://beerpay.io/austinkregel/nova-homestead/make-wish.svg?style=flat-square)](https://beerpay.io/austinkregel/nova-homestead?focus=wish)
+## Support
+If you enjoy my content, please consider supporting me on [Kofi](https://ko-fi.com/Z8Z2W2FZ).
