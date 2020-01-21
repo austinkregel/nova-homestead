@@ -1,0 +1,121 @@
+// Nova Tool CSS
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+.ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-fastest {
+    transition-duration: 75ms;
+}
+.transition-faster {
+    transition-duration: 100ms;
+}
+.transition-fast {
+    transition-duration: 150ms;
+}
+.transition-medium {
+    transition-duration: 200ms;
+}
+.transition-slow {
+    transition-duration: 300ms;
+}
+.transition-slower {
+    transition-duration: 500ms;
+}
+.transition-slowest {
+    transition-duration: 700ms;
+}
+.origin-top {
+    transform-origin: top;
+}
+.origin-left {
+    transform-origin: left;
+}
+
+.transition-all {
+    transition-property: all;
+}
+.transition-opacity {
+    transition-property: opacity;
+}
+.transition-transform {
+    transition-property: transform;
+}
+
+.focus-visible.focus-visible\:underline {
+    text-decoration: underline;
+}
+
+.scale-0 {
+    transform: scale(0);
+}
+.scale-25 {
+    transform: scale(.25);
+}
+.scale-50 {
+    transform: scale(.50);
+}
+.scale-75 {
+    transform: scale(.75);
+}
+.scale-100 {
+    transform: scale(1);
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+.opacity-25 {
+    opacity: 25%;
+}
+.opacity-50 {
+    opacity: 50%;
+}
+.opacity-75 {
+    opacity: 75%;
+}
+.opacity-100 {
+    opacity: 100%;
+}
+.font-ubuntu {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.transform-offscreen-bottom {
+    transform: translateY(500%);
+}
+.transform-offscreen-base {
+    transform: translateY(0);
+}
+.transform-offscreen-top {
+    transform: translateY(-100%);
+}
+
+pre {
+    overflow: hidden;
+    width: 100%;
+    word-wrap: break-word;
+}
+.rotate {
+    -webkit-animation: rotation .75s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
