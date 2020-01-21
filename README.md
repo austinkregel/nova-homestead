@@ -1,3 +1,17 @@
+# A Nova tool to help manage your virtual machine hypervisors.
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kregel/homestead.svg?style=flat-square)](https://packagist.org/packages/kregel/homestead)
+[![Total Downloads](https://img.shields.io/packagist/dt/kregel/homestead.svg?style=flat-square)](https://packagist.org/packages/kregel/homestead)
+
+Have you ever just wanted an interface for managing your virtual machines, and not have it look like it came out of the early 2000s? Look no further. This package aims to satisfy a very very very very small niche portion of hobbyists who both have a Laravel Nova download available, and need to manage virtual machines.
+
+This package does currently support remote management, so assuming you have all the ports open to the server this app is hosted from, and the user you're connecting as has permissions to access all the files, you could host this app on a DigitalOcean server and manage a VM server in your house. :wink:
+
+### What's the alternative?  
+Well, for this specific piece of software, I'm not aware of many alternatives... (They probably exist...)
+
+![Virtual machine access via novnc](./screenshots/vm-access.png)
+
 # Goal
 Get very basic create/read/update/delete functionality for just creating new VMs on a host.
     
