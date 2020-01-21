@@ -12,6 +12,7 @@ Well, for this specific piece of software, I'm not aware of many alternatives...
 
 ![Virtual machine access via novnc](./screenshots/vm-access.png)
 
+[See other screenshots](SCREENSHOTS.md) 
 # Goal
 Get very basic create/read/update/delete functionality for just creating new VMs on a host.
     
