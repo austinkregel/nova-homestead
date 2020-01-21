@@ -43,7 +43,19 @@ This is just an admin dashboard for hypervisors. A hypervisor control panel if y
 ```bash
 composer require kregel/nova-homestead
 ```
+Letting Nova know about it's existence.
 
+```php
+// In your app/Providers/NovaServiceProvider.php
+
+public function tools()
+{
+    return [
+        // ...
+        new \Kregel\Homstead\Homestead(),
+    ];
+}
+```
 ## Installing libvirt-php from this package.
 ```
 cd vendor/kregel/homestead/docker/php/libvirt-php
