@@ -86,14 +86,20 @@ public function tools()
     ];
 }
 ```
-## Installing libvirt-php from this package.
+## Installing libvirt-php.
+Pre installation build tools 
+```bash
+sudo apt install build-essential autoconf automake libtool bison re2c pkg-config libvirt-dev libxml2-dev xsltproc libxml2-utils libmagickwand-dev
 ```
-cd vendor/kregel/homestead/docker/php/libvirt-php
+Also, make sure your PHP instance has `imagick` installed and enabled..
+
+```
+git clone git@github.com:austinkregel/libvirt-php
+cd libvirt-php
 ./autogen.sh
 make
 sudo make install
 ```
-If installation fails, it's usually due to a missing package. Googling around for the missing package will be your best option. 
  
 ## Installing a VNC Client
 In order to view the output of your VM directly, you'll want to use this VNC client. I have only personally tested this out with `novnc` on Ubuntu 19.04 for QEMU.
