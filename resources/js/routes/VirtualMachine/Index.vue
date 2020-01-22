@@ -37,9 +37,9 @@
             }
         },
         async mounted() {
-            if (this.hosts == null) {
-                await this.$store.dispatch(Nova.E.FETCH_HOSTS, this.$route, { root: true});
-            }
+            this.$store.dispatch(Nova.E.FETCH_HYPERVISORS)
+
+            await this.$store.dispatch(Nova.E.FETCH_HOSTS, this.$route, { root: true});
         }
     }
 </script>

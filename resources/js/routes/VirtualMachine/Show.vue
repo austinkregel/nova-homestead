@@ -77,6 +77,8 @@
             hosts() {
                 return this.$store.getters['homestead/hosts'];
             }
+        },
+        mounted() {
         }
     }
 </script>

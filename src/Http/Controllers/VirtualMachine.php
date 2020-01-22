@@ -5,50 +5,72 @@ namespace Kregel\Homestead\Http\Controllers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Kregel\Homestead\Services\Libvirt\VirtualMachineService;
+use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
+use Kregel\Homestead\Models\Hypervisor;
 
 class VirtualMachine extends Controller
 {
     use ValidatesRequests;
 
-    public function enable(VirtualMachineService $service, $uuid)
+    public function index(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor)
     {
+        $service = $factory->factory($hypervisor);
+
+        return $service->findAll();
+    }
+
+    public function enable(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor,  $uuid)
+    {
+        $service = $factory->factory($hypervisor);
+
         $service->enable($uuid);
         return response(null, 201);
     }
 
-    public function pause(VirtualMachineService $service, $uuid)
+    public function pause(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, $uuid)
     {
+        $service = $factory->factory($hypervisor);
+
         $service->pause($uuid);
         return response(null, 201);
     }
 
-    public function shutdown(VirtualMachineService $service, $uuid)
+    public function shutdown(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, $uuid)
     {
+        $service = $factory->factory($hypervisor);
+
         $service->shutdown($uuid);
         return response(null, 201);
     }
 
-    public function forceStop(VirtualMachineService $service, $uuid)
+    public function forceStop(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, $uuid)
     {
+        $service = $factory->factory($hypervisor);
+
         $service->forceStop($uuid);
         return response(null, 201);
     }
 
-    public function destroy(VirtualMachineService $service, $uuid)
+    public function destroy(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, $uuid)
     {
+        $service = $factory->factory($hypervisor);
+
         $service->destroy($uuid);
         return response(null, 201);
     }
 
-    public function reboot(VirtualMachineService $service, $uuid)
+    public function reboot(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, $uuid)
     {
+        $service = $factory->factory($hypervisor);
+
         $service->reboot($uuid);
         return response(null, 201);
     }
 
-    public function store(VirtualMachineService $service, Request $request)
+    public function store(VirtualMachineServiceFactory $factory, Hypervisor $hypervisor, Request $request)
     {
+        $service = $factory->factory($hypervisor);
+
         $this->validate($request, [
             'name' => 'required',
             'memory' => 'required|int|min:256',

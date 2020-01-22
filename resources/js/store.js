@@ -104,9 +104,9 @@ export default {
             }
         },
 
-        async shutdown({ dispatch, commit }, host) {
+        async shutdown({ dispatch, commit, state }, host) {
             try {
-                await axios.post('/nova-vendor/homestead/virtual-machines/' + host.uuid + '/shutdown')
+                await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/shutdown')
                 Nova.app.$toasted.success(host.name + ' is being shutdown safely.');
                 dispatch(Nova.E.REFRESH_HOSTS_BASED_ON_STATE, null, { root })
             } finally {
@@ -114,9 +114,9 @@ export default {
             }
         },
 
-        async enable({ dispatch, commit }, host) {
+        async enable({ dispatch, commit, state }, host) {
             try {
-                await axios.post('/nova-vendor/homestead/virtual-machines/' + host.uuid + '/enable')
+                await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/enable')
                 Nova.app.$toasted.success(host.name + ' is being enabled.');
                 dispatch(Nova.E.REFRESH_HOSTS_BASED_ON_STATE, null, { root })
             } finally {
@@ -124,9 +124,9 @@ export default {
             }
         },
 
-        async reboot({ dispatch, commit }, host) {
+        async reboot({ dispatch, commit, state }, host) {
             try {
-                await axios.post('/nova-vendor/homestead/virtual-machines/' + host.uuid + '/reboot')
+                await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/reboot')
                 Nova.app.$toasted.success(host.name + ' is being rebooted.');
                 dispatch(Nova.E.REFRESH_HOSTS_BASED_ON_STATE, null, { root })
             } finally {
@@ -134,10 +134,10 @@ export default {
             }
         },
 
-        async forceStopVm({ commit }, host) {
+        async forceStopVm({ commit, state }, host) {
             commit('toggleBusy', true);
             try {
-                await axios.post('/nova-vendor/homestead/virtual-machines/' + host.uuid + '/force-stop')
+                await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/force-stop')
                 Nova.app.$toasted.success(host.name + ' has been shut down.')
             } finally {
                 commit('toggleBusy', false);
@@ -147,7 +147,7 @@ export default {
         async destroyVm({ state, dispatch, commit }, host) {
             commit('toggleBusy', true);
             try {
-                await axios.post('/nova-vendor/homestead/virtual-machines/' + host.uuid + '/destroy')
+                await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/destroy')
                 commit('toggleBusy', false);
                 Nova.app.$toasted.success(host.name + ' has been destroyed.')
                 dispatch(Nova.E.REFRESH_HOSTS_BASED_ON_STATE, null, { root })
@@ -191,7 +191,7 @@ export default {
             form.disk.path = form.disk.path + form.name + '.' + form.disk.driver;
             form.iso = state.path + '/' + selectedIso.path;
 
-            const { data } = await axios.post('/nova-vendor/homestead/virtual-machines', form)
+            const { data } = await axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines', form)
             Nova.app.$toasted.success(data.name + ' created!')
             dispatch(Nova.E.REFRESH_HOSTS_BASED_ON_STATE, null, { root })
         },

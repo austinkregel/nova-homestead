@@ -11,11 +11,4 @@ class HypervisorsController
     {
         return Hypervisor::all();
     }
-
-    public function machines(Hypervisor $hypervisor, VirtualMachineServiceFactory $factory)
-    {
-        $service = $factory->factory($hypervisor);
-
-        return $service->findAll();
-    }
 }

@@ -14,5 +14,9 @@
                 return this.$store.state.homestead.hypervisors;
             }
         },
+        mounted() {
+            this.$store.dispatch(Nova.E.FETCH_HYPERVISORS)
+            this.$store.commit('homestead/hosts', [])
+        }
     }
 </script>
