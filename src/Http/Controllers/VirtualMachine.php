@@ -1,12 +1,12 @@
 <?php
 
-namespace Kregel\Homestead\Http\Controllers;
+namespace Kregel\Supervisor\Http\Controllers;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
-use Kregel\Homestead\Models\Hypervisor;
+use Kregel\Supervisor\Factories\VirtualMachineServiceFactory;
+use Kregel\Supervisor\Models\Hypervisor;
 
 class VirtualMachine extends Controller
 {

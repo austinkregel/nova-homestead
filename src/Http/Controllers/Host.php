@@ -1,13 +1,13 @@
 <?php
 
-namespace Kregel\Homestead\Http\Controllers;
+namespace Kregel\Supervisor\Http\Controllers;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
-use Kregel\Homestead\Models\Hypervisor;
-use Kregel\Homestead\Services\Libvirt\VirtualMachineService;
+use Kregel\Supervisor\Factories\VirtualMachineServiceFactory;
+use Kregel\Supervisor\Models\Hypervisor;
+use Kregel\Supervisor\Services\Libvirt\VirtualMachineService;
 
 class Host
 {
@@ -51,6 +51,6 @@ class Host
 
     public function path(Request $request)
     {
-        return config('homestead.iso_path');
+        return config('supervisor.iso_path');
     }
 }

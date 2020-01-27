@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/hypervisors', \Kregel\Homestead\Http\Controllers\HypervisorsController::class);
+Route::get('/hypervisors', \Kregel\Supervisor\Http\Controllers\HypervisorsController::class);
 
 
 Route::group(['prefix' => '/hypervisors/{hypervisor}',], function () {
-    Route::get('machines', \Kregel\Homestead\Http\Controllers\VirtualMachine::class.'@index');
-    Route::resource('virtual-machines', \Kregel\Homestead\Http\Controllers\VirtualMachine::class);
+    Route::get('machines', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class.'@index');
+    Route::resource('virtual-machines', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class);
 
     Route::group(['prefix' => '/virtual-machines/{uuid}',], function () {
-        Route::post('enable', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@enable');
-        Route::post('pause', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@pause');
-        Route::post('shutdown', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@shutdown');
-        Route::post('destroy', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@destroy');
-        Route::post('reboot', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@reboot');
-        Route::post('force-stop', \Kregel\Homestead\Http\Controllers\VirtualMachine::class . '@forceStop');
+        Route::post('enable', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@enable');
+        Route::post('pause', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@pause');
+        Route::post('shutdown', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@shutdown');
+        Route::post('destroy', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@destroy');
+        Route::post('reboot', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@reboot');
+        Route::post('force-stop', \Kregel\Supervisor\Http\Controllers\VirtualMachine::class . '@forceStop');
     });
 });
 
-Route::get('iso-files/{path}', \Kregel\Homestead\Http\Controllers\Host::class.'@show');
-Route::post('network', \Kregel\Homestead\Http\Controllers\Host::class.'@network');
+Route::get('iso-files/{path}', \Kregel\Supervisor\Http\Controllers\Host::class.'@show');
+Route::post('network', \Kregel\Supervisor\Http\Controllers\Host::class.'@network');

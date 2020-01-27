@@ -1,10 +1,10 @@
 <?php
 
-namespace Kregel\Homestead\Tests\Unit\Filters;
+namespace Kregel\Supervisor\Tests\Unit\Filters;
 
-use Kregel\Homestead\Filters\LibvirtConnectionFilter;
-use Kregel\Homestead\Models\Hypervisor;
-use Kregel\Homestead\Tests\AbstractTestCase;
+use Kregel\Supervisor\Filters\LibvirtConnectionFilter;
+use Kregel\Supervisor\Models\Hypervisor;
+use Kregel\Supervisor\Tests\AbstractTestCase;
 
 class LibvirtConnectionFilterTest extends AbstractTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Nova;
+namespace Kregel\Supervisor\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -10,8 +10,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Kregel\Homestead\Models\Hypervisor as ModelHypervisor;
-use Kregel\Homestead\Nova\Cards\Help;
+use Kregel\Supervisor\Models\Hypervisor as ModelHypervisor;
+use Kregel\Supervisor\Nova\Cards\Help;
 
 class Hypervisor extends Resource
 {

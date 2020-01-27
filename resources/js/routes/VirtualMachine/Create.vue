@@ -104,13 +104,13 @@
         },
         computed: {
             files() {
-                return this.$store.state.homestead.files;
+                return this.$store.state.supervisor.files;
             },
             networks() {
-                return this.$store.state.homestead.networks || [];
+                return this.$store.state.supervisor.networks || [];
             },
             path() {
-                return this.$store.state.homestead.path
+                return this.$store.state.supervisor.path
             },
         },
         methods: {
@@ -128,7 +128,7 @@
                 }, { root: true })
 
                 setTimeout(() => Nova.app.$router.push({
-                    name: 'homestead.index',
+                    name: 'supervisor.index',
                     params: this.$route.params
                 }), 200)
             }

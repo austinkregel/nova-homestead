@@ -13,19 +13,19 @@
     export default {
         computed: {
             host() {
-                return this.$store.getters['homestead/host'];
+                return this.$store.getters['supervisor/host'];
             },
             hypervisor() {
-                return this.$store.state.homestead.hypervisor;
+                return this.$store.state.supervisor.hypervisor;
             }
         },
         methods: {
             async destroyVm() {
                 await this.$store.dispatch(Nova.E.DESTROY_VM, this.host)
                 this.$router.push({
-                    name: 'homestead.index',
+                    name: 'supervisor.index',
                     params: {
-                        homestead: this.homestead.id
+                        supervisor: this.supervisor.id
                     }
                 })
             }

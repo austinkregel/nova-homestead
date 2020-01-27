@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Events;
+namespace Kregel\Supervisor\Events;
 
 class VirtualMachineDestroyed
 {

@@ -34,19 +34,19 @@
                 <div>
                     ipv4: {{ host.networks.filter(network => network.private).map(network => network.ip).join(', ') }}
                 </div>
-                <a class="flex items-center" href="http://homestead.test:6080/vnc.html?host=127.0.0.1&port=6080" target="_blank">
+                <a class="flex items-center" href="http://supervisor.test:6080/vnc.html?host=127.0.0.1&port=6080" target="_blank">
                     Console <svg class="ml-1 w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2zm2 0v15l6-3 6 3V2H4z"/></svg>
                 </a>
             </div>
             <div class="w-full flex flex-wrap mt-6">
                 <div class="w-1/5 flex flex-col">
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.access', params: $router.params }">Access</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.destroy', params: $router.params }">Destroy</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.devices', params: $router.params }">Devices</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.power', params: $router.params }">Power</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.resize', params: $router.params }">Resize</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.snapshots', params: $router.params }">Snapshots</router-link>
-                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'homestead.show.tags', params: $router.params }">Tags</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.access', params: $router.params }">Access</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.destroy', params: $router.params }">Destroy</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.devices', params: $router.params }">Devices</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.power', params: $router.params }">Power</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.resize', params: $router.params }">Resize</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.snapshots', params: $router.params }">Snapshots</router-link>
+                    <router-link class="py-1 text-base text-thin text-gray-500" :to="{name: 'supervisor.show.tags', params: $router.params }">Tags</router-link>
                 </div>
                 <div class="w-4/5">
                     <router-view></router-view>
@@ -69,13 +69,13 @@
                 return this.host.shouldBeOn;
             },
             host() {
-                return this.$store.getters['homestead/host'];
+                return this.$store.getters['supervisor/host'];
             },
             hypervisor() {
-                return this.$store.state.homestead.hypervisor;
+                return this.$store.state.supervisor.hypervisor;
             },
             hosts() {
-                return this.$store.getters['homestead/hosts'];
+                return this.$store.getters['supervisor/hosts'];
             }
         },
         mounted() {

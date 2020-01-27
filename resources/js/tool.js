@@ -17,7 +17,7 @@ Nova.route = (name, parameters) => {
     return namedRoute;
 }
 
-window.HOMESTEAD_LOADED = {
+window.SUPERVISOR_LOADED = {
     hypervisors: false,
     hosts: false,
 }
@@ -36,7 +36,7 @@ Nova.booting(async (Vue, router, store) => {
     Vue.use(Vuex);
     Vue.config.devtools = true;
 
-    store.registerModule('homestead', require('./store').default);
+    store.registerModule('supervisor', require('./store').default);
     await sync(store, router);
 
     await store.dispatch(E.FETCH_HYPERVISORS, {}, { root: true})
@@ -45,24 +45,24 @@ Nova.booting(async (Vue, router, store) => {
     Vue.component('hypervisor', require('./components/Hypervisor'));
 
     const routes = [
-        route(undefined, 'homestead', './routes/Base', {
+        route(undefined, 'supervisor', './routes/Base', {
             children: [
-                route('homestead', 'homestead', './routes/Homestead'),
-                route('homestead.index', 'homestead/:hypervisor/virtual-machines', './routes/VirtualMachine/Index'),
-                route('homestead.create', 'homestead/:hypervisor/virtual-machines/create', './routes/VirtualMachine/Create'),
-                route('homestead.show', 'homestead/:hypervisor/virtual-machine/:host', './routes/VirtualMachine/Show', {
+                route('supervisor', 'supervisor', './routes/Supervisor'),
+                route('supervisor.index', 'supervisor/:hypervisor/virtual-machines', './routes/VirtualMachine/Index'),
+                route('supervisor.create', 'supervisor/:hypervisor/virtual-machines/create', './routes/VirtualMachine/Create'),
+                route('supervisor.show', 'supervisor/:hypervisor/virtual-machine/:host', './routes/VirtualMachine/Show', {
                     children: [
 
-                        route('homestead.show.access', 'homestead/:hypervisor/virtual-machine/:host/access', './routes/VirtualMachine/Show/Access'),
-                        route('homestead.show.destroy', 'homestead/:hypervisor/virtual-machine/:host/destroy', './routes/VirtualMachine/Show/Destroy'),
-                        route('homestead.show.devices', 'homestead/:hypervisor/virtual-machine/:host/devices', './routes/VirtualMachine/Show/Devices'),
-                        route('homestead.show.power', 'homestead/:hypervisor/virtual-machine/:host/power', './routes/VirtualMachine/Show/Power'),
-                        route('homestead.show.resize', 'homestead/:hypervisor/virtual-machine/:host/resize', './routes/VirtualMachine/Show/Resize'),
-                        route('homestead.show.snapshots', 'homestead/:hypervisor/virtual-machine/:host/snapshots', './routes/VirtualMachine/Show/Snapshots'),
-                        route('homestead.show.tags', 'homestead/:hypervisor/virtual-machine/:host/tags', './routes/VirtualMachine/Show/Tags'),
+                        route('supervisor.show.access', 'supervisor/:hypervisor/virtual-machine/:host/access', './routes/VirtualMachine/Show/Access'),
+                        route('supervisor.show.destroy', 'supervisor/:hypervisor/virtual-machine/:host/destroy', './routes/VirtualMachine/Show/Destroy'),
+                        route('supervisor.show.devices', 'supervisor/:hypervisor/virtual-machine/:host/devices', './routes/VirtualMachine/Show/Devices'),
+                        route('supervisor.show.power', 'supervisor/:hypervisor/virtual-machine/:host/power', './routes/VirtualMachine/Show/Power'),
+                        route('supervisor.show.resize', 'supervisor/:hypervisor/virtual-machine/:host/resize', './routes/VirtualMachine/Show/Resize'),
+                        route('supervisor.show.snapshots', 'supervisor/:hypervisor/virtual-machine/:host/snapshots', './routes/VirtualMachine/Show/Snapshots'),
+                        route('supervisor.show.tags', 'supervisor/:hypervisor/virtual-machine/:host/tags', './routes/VirtualMachine/Show/Tags'),
                     ]
                 }),
-                route('homestead.edit', ':hypervisor/virtual-machine/:host/edit', './routes/VirtualMachine/Edit'),
+                route('supervisor.edit', ':hypervisor/virtual-machine/:host/edit', './routes/VirtualMachine/Edit'),
             ]
         })
     ];

@@ -1,9 +1,9 @@
 <?php
 
-namespace Kregel\Homestead\Http\Controllers;
+namespace Kregel\Supervisor\Http\Controllers;
 
-use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
-use Kregel\Homestead\Models\Hypervisor;
+use Kregel\Supervisor\Factories\VirtualMachineServiceFactory;
+use Kregel\Supervisor\Models\Hypervisor;
 
 class HypervisorsController
 {

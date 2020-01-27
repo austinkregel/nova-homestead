@@ -219,7 +219,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         bindingKey = _context2.t1.value;
                         _context2.prev = 3;
                         return _context2.delegateYield( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                            var pluralKey, singularKey, value, pluralValue, homesteadValue, boundModel;
+                            var pluralKey, singularKey, value, pluralValue, supervisorValue, boundModel;
                             return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                                 while (1) {
                                     switch (_context.prev = _context.next) {
@@ -228,7 +228,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                             singularKey = Object(__WEBPACK_IMPORTED_MODULE_1_pluralize__["singular"])(bindingKey);
                                             value = to.params[bindingKey];
 
-                                            if (store.state.homestead) {
+                                            if (store.state.supervisor) {
                                                 _context.next = 5;
                                                 break;
                                             }
@@ -236,7 +236,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                             return _context.abrupt('return', 'continue');
 
                                         case 5:
-                                            if (!(typeof store.state.homestead[pluralKey] === 'undefined')) {
+                                            if (!(typeof store.state.supervisor[pluralKey] === 'undefined')) {
                                                 _context.next = 7;
                                                 break;
                                             }
@@ -244,7 +244,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                             return _context.abrupt('return', 'continue');
 
                                         case 7:
-                                            pluralValue = store.state.homestead[pluralKey];
+                                            pluralValue = store.state.supervisor[pluralKey];
 
                                             // We're storing it, but we haven't received it from the server yet.
 
@@ -261,9 +261,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                             throw 'Unknown fetch! ' + ('FETCH_' + pluralKey.toUpperCase());
 
                                         case 11:
-                                            homesteadValue = Nova.E['FETCH_' + pluralKey.toUpperCase()];
+                                            supervisorValue = Nova.E['FETCH_' + pluralKey.toUpperCase()];
                                             _context.next = 14;
-                                            return store.dispatch(homesteadValue, to, { root: true });
+                                            return store.dispatch(supervisorValue, to, { root: true });
 
                                         case 14:
                                             pluralValue = _context.sent;
@@ -284,7 +284,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
                                             if (boundModel) {
-                                                store.commit('homestead/' + singularKey, boundModel, { root: true });
+                                                store.commit('supervisor/' + singularKey, boundModel, { root: true });
                                             }
 
                                         case 20:
@@ -372,7 +372,7 @@ Nova.route = function (name, parameters) {
     return namedRoute;
 };
 
-window.HOMESTEAD_LOADED = {
+window.SUPERVISOR_LOADED = {
     hypervisors: false,
     hosts: false
 };
@@ -401,7 +401,7 @@ Nova.booting(function () {
                         Vue.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
                         Vue.config.devtools = true;
 
-                        store.registerModule('homestead', __webpack_require__(8).default);
+                        store.registerModule('supervisor', __webpack_require__(8).default);
                         _context.next = 5;
                         return Object(__WEBPACK_IMPORTED_MODULE_3__vuex_route_sync__["sync"])(store, router);
 
@@ -414,10 +414,10 @@ Nova.booting(function () {
                         Vue.component('host', __webpack_require__(6));
                         Vue.component('hypervisor', __webpack_require__(7));
 
-                        routes = [route(undefined, 'homestead', './routes/Base', {
-                            children: [route('homestead', 'homestead', './routes/Homestead'), route('homestead.index', 'homestead/:hypervisor/virtual-machines', './routes/VirtualMachine/Index'), route('homestead.create', 'homestead/:hypervisor/virtual-machines/create', './routes/VirtualMachine/Create'), route('homestead.show', 'homestead/:hypervisor/virtual-machine/:host', './routes/VirtualMachine/Show', {
-                                children: [route('homestead.show.access', 'homestead/:hypervisor/virtual-machine/:host/access', './routes/VirtualMachine/Show/Access'), route('homestead.show.destroy', 'homestead/:hypervisor/virtual-machine/:host/destroy', './routes/VirtualMachine/Show/Destroy'), route('homestead.show.devices', 'homestead/:hypervisor/virtual-machine/:host/devices', './routes/VirtualMachine/Show/Devices'), route('homestead.show.power', 'homestead/:hypervisor/virtual-machine/:host/power', './routes/VirtualMachine/Show/Power'), route('homestead.show.resize', 'homestead/:hypervisor/virtual-machine/:host/resize', './routes/VirtualMachine/Show/Resize'), route('homestead.show.snapshots', 'homestead/:hypervisor/virtual-machine/:host/snapshots', './routes/VirtualMachine/Show/Snapshots'), route('homestead.show.tags', 'homestead/:hypervisor/virtual-machine/:host/tags', './routes/VirtualMachine/Show/Tags')]
-                            }), route('homestead.edit', ':hypervisor/virtual-machine/:host/edit', './routes/VirtualMachine/Edit')]
+                        routes = [route(undefined, 'supervisor', './routes/Base', {
+                            children: [route('supervisor', 'supervisor', './routes/Supervisor'), route('supervisor.index', 'supervisor/:hypervisor/virtual-machines', './routes/VirtualMachine/Index'), route('supervisor.create', 'supervisor/:hypervisor/virtual-machines/create', './routes/VirtualMachine/Create'), route('supervisor.show', 'supervisor/:hypervisor/virtual-machine/:host', './routes/VirtualMachine/Show', {
+                                children: [route('supervisor.show.access', 'supervisor/:hypervisor/virtual-machine/:host/access', './routes/VirtualMachine/Show/Access'), route('supervisor.show.destroy', 'supervisor/:hypervisor/virtual-machine/:host/destroy', './routes/VirtualMachine/Show/Destroy'), route('supervisor.show.devices', 'supervisor/:hypervisor/virtual-machine/:host/devices', './routes/VirtualMachine/Show/Devices'), route('supervisor.show.power', 'supervisor/:hypervisor/virtual-machine/:host/power', './routes/VirtualMachine/Show/Power'), route('supervisor.show.resize', 'supervisor/:hypervisor/virtual-machine/:host/resize', './routes/VirtualMachine/Show/Resize'), route('supervisor.show.snapshots', 'supervisor/:hypervisor/virtual-machine/:host/snapshots', './routes/VirtualMachine/Show/Snapshots'), route('supervisor.show.tags', 'supervisor/:hypervisor/virtual-machine/:host/tags', './routes/VirtualMachine/Show/Tags')]
+                            }), route('supervisor.edit', ':hypervisor/virtual-machine/:host/edit', './routes/VirtualMachine/Edit')]
                         })];
 
 
@@ -448,19 +448,19 @@ Nova.booting(function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var FETCH_HOSTS = 'homestead/getHosts';
-var TOGGLE_VM = 'homestead/toggleVmStatus';
-var FORCE_STOP = 'homestead/forceStopVm';
-var DESTROY_VM = 'homestead/destroyVm';
-var FETCH_HYPERVISORS = 'homestead/getHypervisors';
-var GET_PATH = 'homestead/getPath';
-var SELECT_NEW_PATH = 'homestead/selectNewPath';
-var CREATE_VM = 'homestead/createVm';
-var FETCH_NETWORKS = 'homestead/getNetworks';
-var SYNC_HOST = 'homestead/syncHost';
-var SHUTDOWN = 'homestead/shutdown';
-var REBOOT = 'homestead/reboot';
-var REFRESH_HOSTS_BASED_ON_STATE = 'homestead/proxyGetHosts';
+var FETCH_HOSTS = 'supervisor/getHosts';
+var TOGGLE_VM = 'supervisor/toggleVmStatus';
+var FORCE_STOP = 'supervisor/forceStopVm';
+var DESTROY_VM = 'supervisor/destroyVm';
+var FETCH_HYPERVISORS = 'supervisor/getHypervisors';
+var GET_PATH = 'supervisor/getPath';
+var SELECT_NEW_PATH = 'supervisor/selectNewPath';
+var CREATE_VM = 'supervisor/createVm';
+var FETCH_NETWORKS = 'supervisor/getNetworks';
+var SYNC_HOST = 'supervisor/syncHost';
+var SHUTDOWN = 'supervisor/shutdown';
+var REBOOT = 'supervisor/reboot';
+var REFRESH_HOSTS_BASED_ON_STATE = 'supervisor/proxyGetHosts';
 /* harmony default export */ __webpack_exports__["default"] = ({
     FETCH_HOSTS: FETCH_HOSTS,
     TOGGLE_VM: TOGGLE_VM,
@@ -791,7 +791,7 @@ var root = true;
                             case 4:
                                 _context.prev = 4;
                                 _context.next = 7;
-                                return axios.get('/nova-vendor/homestead/hypervisors/' + params.hypervisor + '/machines');
+                                return axios.get('/nova-vendor/supervisor/hypervisors/' + params.hypervisor + '/machines');
 
                             case 7:
                                 _ref4 = _context.sent;
@@ -849,7 +849,7 @@ var root = true;
                             case 4:
                                 _context2.prev = 4;
                                 _context2.next = 7;
-                                return axios.get('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/machines');
+                                return axios.get('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/machines');
 
                             case 7:
                                 _ref7 = _context2.sent;
@@ -925,7 +925,7 @@ var root = true;
                             case 0:
                                 _context4.prev = 0;
                                 _context4.next = 3;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/shutdown');
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/shutdown');
 
                             case 3:
                                 Nova.app.$toasted.success(host.name + ' is being shutdown safely.');
@@ -962,7 +962,7 @@ var root = true;
                             case 0:
                                 _context5.prev = 0;
                                 _context5.next = 3;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/enable');
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/enable');
 
                             case 3:
                                 Nova.app.$toasted.success(host.name + ' is being enabled.');
@@ -999,7 +999,7 @@ var root = true;
                             case 0:
                                 _context6.prev = 0;
                                 _context6.next = 3;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/reboot');
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/reboot');
 
                             case 3:
                                 Nova.app.$toasted.success(host.name + ' is being rebooted.');
@@ -1036,7 +1036,7 @@ var root = true;
                                 commit('toggleBusy', true);
                                 _context7.prev = 1;
                                 _context7.next = 4;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/force-stop');
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/force-stop');
 
                             case 4:
                                 Nova.app.$toasted.success(host.name + ' has been shut down.');
@@ -1073,7 +1073,7 @@ var root = true;
                                 commit('toggleBusy', true);
                                 _context8.prev = 1;
                                 _context8.next = 4;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/destroy');
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines/' + host.uuid + '/destroy');
 
                             case 4:
                                 commit('toggleBusy', false);
@@ -1111,7 +1111,7 @@ var root = true;
                         switch (_context9.prev = _context9.next) {
                             case 0:
                                 _context9.next = 2;
-                                return axios.get('/nova-vendor/homestead/hypervisors');
+                                return axios.get('/nova-vendor/supervisor/hypervisors');
 
                             case 2:
                                 _ref22 = _context9.sent;
@@ -1164,7 +1164,7 @@ var root = true;
                                 commit('path', hypervisor.path_to_isos);
 
                                 _context10.next = 7;
-                                return axios.get('/nova-vendor/homestead/iso-files/' + btoa(state.path));
+                                return axios.get('/nova-vendor/supervisor/iso-files/' + btoa(state.path));
 
                             case 7:
                                 _ref25 = _context10.sent;
@@ -1241,7 +1241,7 @@ var root = true;
                                 form.iso = state.path + '/' + selectedIso.path;
 
                                 _context12.next = 4;
-                                return axios.post('/nova-vendor/homestead/hypervisors/' + state.hypervisor.id + '/virtual-machines', form);
+                                return axios.post('/nova-vendor/supervisor/hypervisors/' + state.hypervisor.id + '/virtual-machines', form);
 
                             case 4:
                                 _ref31 = _context12.sent;
@@ -1275,7 +1275,7 @@ var root = true;
                         switch (_context13.prev = _context13.next) {
                             case 0:
                                 _context13.next = 2;
-                                return axios.post('/nova-vendor/homestead/network', {
+                                return axios.post('/nova-vendor/supervisor/network', {
                                     hypervisor_id: $route.params.hypervisor
                                 });
 
@@ -1746,7 +1746,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/routes/Homestead.vue"
+Component.options.__file = "resources/js/routes/Supervisor.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -4685,8 +4685,8 @@ var map = {
 	"./route-model-binding.js": 2,
 	"./routes/Base": 11,
 	"./routes/Base.vue": 11,
-	"./routes/Homestead": 12,
-	"./routes/Homestead.vue": 12,
+	"./routes/Supervisor": 12,
+	"./routes/Supervisor.vue": 12,
 	"./routes/VirtualMachine/Create": 13,
 	"./routes/VirtualMachine/Create.vue": 13,
 	"./routes/VirtualMachine/Edit": 14,
@@ -4789,7 +4789,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         }
     },
     methods: {
@@ -4833,7 +4833,7 @@ var render = function() {
                         staticClass: "text-blue-600 underline",
                         attrs: {
                           to: {
-                            name: "homestead.show",
+                            name: "supervisor.show",
                             params: {
                               hypervisor: _vm.hypervisor.id,
                               host: _vm.host.uuid
@@ -5101,7 +5101,7 @@ var render = function() {
               staticClass: "text-xl text-blue-500 underline",
               attrs: {
                 to: {
-                  name: "homestead.index",
+                  name: "supervisor.index",
                   params: { hypervisor: _vm.hypervisor.id }
                 }
               }
@@ -5200,12 +5200,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
         hypervisors: function hypervisors() {
-            return this.$store.state.homestead.hypervisors;
+            return this.$store.state.supervisor.hypervisors;
         }
     },
     mounted: function mounted() {
         this.$store.dispatch(Nova.E.FETCH_HYPERVISORS);
-        this.$store.commit('homestead/hosts', []);
+        this.$store.commit('supervisor/hosts', []);
     }
 });
 
@@ -5366,13 +5366,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     computed: {
         files: function files() {
-            return this.$store.state.homestead.files;
+            return this.$store.state.supervisor.files;
         },
         networks: function networks() {
-            return this.$store.state.homestead.networks || [];
+            return this.$store.state.supervisor.networks || [];
         },
         path: function path() {
-            return this.$store.state.homestead.path;
+            return this.$store.state.supervisor.path;
         }
     },
     methods: {
@@ -5401,7 +5401,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 setTimeout(function () {
                                     return Nova.app.$router.push({
-                                        name: 'homestead.index',
+                                        name: 'supervisor.index',
                                         params: _this.$route.params
                                     });
                                 }, 200);
@@ -5801,13 +5801,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     computed: {
         shouldBeOn: function shouldBeOn() {
-            return this.$store.state.homestead.shouldBeOn;
+            return this.$store.state.supervisor.shouldBeOn;
         },
         host: function host() {
-            return this.$store.state.homestead.host;
+            return this.$store.state.supervisor.host;
         },
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         }
     }
 });
@@ -5920,10 +5920,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     computed: {
         hosts: function hosts() {
-            return this.$store.getters['homestead/hosts'];
+            return this.$store.getters['supervisor/hosts'];
         },
         shouldShowEdit: function shouldShowEdit() {
-            return this.$store.state.homestead.shouldShowEdit;
+            return this.$store.state.supervisor.shouldShowEdit;
         }
     },
     mounted: function () {
@@ -5978,7 +5978,7 @@ var render = function() {
                   "bg-blue-500 font-bold px-4 py-2 rounded text-white",
                 attrs: {
                   to: {
-                    name: "homestead.create",
+                    name: "supervisor.create",
                     params: { hypervisor: _vm.$route.params.hypervisor }
                   }
                 }
@@ -6002,7 +6002,7 @@ var render = function() {
                   {
                     attrs: {
                       to: {
-                        name: "homestead.edit",
+                        name: "supervisor.edit",
                         params: { hypervisor: _vm.hypervisor.id }
                       }
                     }
@@ -6033,7 +6033,7 @@ var render = function() {
               { staticClass: "w-full shadow italic rounded bg-white p-4" },
               [
                 _vm._v(
-                  "\n        No hypervisor was found... Please go to the homestead page...\n    "
+                  "\n        No hypervisor was found... Please go to the supervisor page...\n    "
                 )
               ]
             )
@@ -6153,13 +6153,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             return this.host.shouldBeOn;
         },
         host: function host() {
-            return this.$store.getters['homestead/host'];
+            return this.$store.getters['supervisor/host'];
         },
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         },
         hosts: function hosts() {
-            return this.$store.getters['homestead/hosts'];
+            return this.$store.getters['supervisor/hosts'];
         }
     },
     mounted: function mounted() {}
@@ -6310,7 +6310,7 @@ var render = function() {
                   staticClass: "flex items-center",
                   attrs: {
                     href:
-                      "http://homestead.test:6080/vnc.html?host=127.0.0.1&port=6080",
+                      "http://supervisor.test:6080/vnc.html?host=127.0.0.1&port=6080",
                     target: "_blank"
                   }
                 },
@@ -6350,7 +6350,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.access",
+                        name: "supervisor.show.access",
                         params: _vm.$router.params
                       }
                     }
@@ -6364,7 +6364,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.destroy",
+                        name: "supervisor.show.destroy",
                         params: _vm.$router.params
                       }
                     }
@@ -6378,7 +6378,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.devices",
+                        name: "supervisor.show.devices",
                         params: _vm.$router.params
                       }
                     }
@@ -6392,7 +6392,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.power",
+                        name: "supervisor.show.power",
                         params: _vm.$router.params
                       }
                     }
@@ -6406,7 +6406,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.resize",
+                        name: "supervisor.show.resize",
                         params: _vm.$router.params
                       }
                     }
@@ -6420,7 +6420,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.snapshots",
+                        name: "supervisor.show.snapshots",
                         params: _vm.$router.params
                       }
                     }
@@ -6434,7 +6434,7 @@ var render = function() {
                     staticClass: "py-1 text-base text-thin text-gray-500",
                     attrs: {
                       to: {
-                        name: "homestead.show.tags",
+                        name: "supervisor.show.tags",
                         params: _vm.$router.params
                       }
                     }
@@ -6495,7 +6495,7 @@ var staticRenderFns = [
       _c("iframe", {
         staticClass: "w-full h-screen",
         attrs: {
-          src: "http://homestead.test:6080/vnc.html?host=127.0.0.1&port=6080",
+          src: "http://supervisor.test:6080/vnc.html?host=127.0.0.1&port=6080",
           frameborder: "0"
         }
       })
@@ -6538,10 +6538,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
         host: function host() {
-            return this.$store.getters['homestead/host'];
+            return this.$store.getters['supervisor/host'];
         },
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         }
     },
     methods: {
@@ -6556,9 +6556,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 2:
                                 this.$router.push({
-                                    name: 'homestead.index',
+                                    name: 'supervisor.index',
                                     params: {
-                                        homestead: this.homestead.id
+                                        supervisor: this.supervisor.id
                                     }
                                 });
 
@@ -6638,10 +6638,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
         host: function host() {
-            return this.$store.getters['homestead/host'];
+            return this.$store.getters['supervisor/host'];
         },
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         }
     }
 });
@@ -6710,10 +6710,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
         host: function host() {
-            return this.$store.getters['homestead/host'];
+            return this.$store.getters['supervisor/host'];
         },
         hypervisor: function hypervisor() {
-            return this.$store.state.homestead.hypervisor;
+            return this.$store.state.supervisor.hypervisor;
         }
     },
     methods: {
