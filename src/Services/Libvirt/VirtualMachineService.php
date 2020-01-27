@@ -1,9 +1,9 @@
 <?php
 
-namespace Kregel\Homestead\Services\Libvirt;
+namespace Kregel\Supervisor\Services\Libvirt;
 
 use Illuminate\Support\Str;
-use Kregel\Homestead\Exceptions\LibvirtException;
+use Kregel\Supervisor\Exceptions\LibvirtException;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class VirtualMachineService

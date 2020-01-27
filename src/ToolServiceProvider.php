@@ -1,13 +1,13 @@
 <?php
 
-namespace Kregel\Homestead;
+namespace Kregel\Supervisor;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
+use Kregel\Supervisor\Factories\VirtualMachineServiceFactory;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
-use Kregel\Homestead\Http\Middleware\Authorize;
+use Kregel\Supervisor\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
 {
@@ -18,7 +18,7 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'homestead');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'supervisor');
 
         $this->app->booted(function () {
             $this->routes();
@@ -41,7 +41,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/homestead')
+                ->prefix('nova-vendor/supervisor')
                 ->group(__DIR__.'/../routes/api.php');
     }
 

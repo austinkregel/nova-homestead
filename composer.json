@@ -1,5 +1,5 @@
 {
-    "name": "kregel/homestead",
+    "name": "kregel/supervisor",
     "description": "A Laravel Nova tool.",
     "keywords": [
         "laravel",
@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Kregel\\Homestead\\": "src/"
+            "Kregel\\Supervisor\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Kregel\\Homestead\\ToolServiceProvider"
+                "Kregel\\Supervisor\\ToolServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Exceptions;
+namespace Kregel\Supervisor\Exceptions;
 
 use Throwable;
 

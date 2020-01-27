@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Nova\Cards;
+namespace Kregel\Supervisor\Nova\Cards;
 
 use Laravel\Nova\Card;
 
@@ -10,6 +10,6 @@ class Help extends Card
 
     public function component()
     {
-        return 'homestead-help';
+        return 'supervisor-help';
     }
 }

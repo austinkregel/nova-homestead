@@ -1,12 +1,12 @@
 <?php
 
-namespace Kregel\Homestead;
+namespace Kregel\Supervisor;
 
-use Kregel\Homestead\Nova\Cards\Help;
+use Kregel\Supervisor\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 
-class Homestead extends Tool
+class Supervisor extends Tool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -15,8 +15,8 @@ class Homestead extends Tool
      */
     public function boot()
     {
-        Nova::script('homestead', __DIR__.'/../dist/js/tool.js');
-        Nova::style('homestead', __DIR__.'/../dist/css/tool.css');
+        Nova::script('supervisor', __DIR__.'/../dist/js/tool.js');
+        Nova::style('supervisor', __DIR__.'/../dist/css/tool.css');
     }
 
     /**
@@ -26,6 +26,6 @@ class Homestead extends Tool
      */
     public function renderNavigation()
     {
-        return view('homestead::navigation');
+        return view('supervisor::navigation');
     }
 }

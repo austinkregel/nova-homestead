@@ -1,7 +1,7 @@
 # A Nova tool to help manage your virtual machine hypervisors.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/kregel/homestead.svg?style=flat-square)](https://packagist.org/packages/kregel/homestead)
-[![Total Downloads](https://img.shields.io/packagist/dt/kregel/homestead.svg?style=flat-square)](https://packagist.org/packages/kregel/homestead)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kregel/supervisor.svg?style=flat-square)](https://packagist.org/packages/kregel/supervisor)
+[![Total Downloads](https://img.shields.io/packagist/dt/kregel/supervisor.svg?style=flat-square)](https://packagist.org/packages/kregel/supervisor)
 
 Have you ever just wanted an interface for managing your virtual machines, and not have it look like it came out of the early 2000s? Look no further. This package aims to satisfy a very very very very small niche portion of hobbyists who both have a Laravel Nova download available, and need to manage virtual machines.
 
@@ -71,7 +71,7 @@ This is just an admin dashboard for hypervisors. A hypervisor control panel if y
 
 ## Installing this package
 ```bash
-composer require kregel/nova-homestead
+composer require kregel/nova-supervisor
 ```
 Letting Nova know about it's existence.
 
@@ -82,7 +82,7 @@ public function tools()
 {
     return [
         // ...
-        new \Kregel\Homstead\Homestead(),
+        new \Kregel\Supervisor\Supervisor(),
     ];
 }
 ```
@@ -121,7 +121,7 @@ Ensure that the user has access to the group `libvirt-qemu`. Usually this mean r
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Release notes
-As this projects gets built out further and further, you can keep track of the releases on [Changelager](https://nova-homestead.changed.to/1274).
+As this projects gets built out further and further, you can keep track of the releases on [Changelager](https://nova-supervisor.changed.to/1274).
 
 ## libvirt-php auto complete
 At the moment there's a script called `build-doc.php` which will extract all methods from the libvirt library and put it into the `.phpstorm.meta.php` file. The logic of what happens within those methods can only be find in the `./docker/php/libvirt-php/src` directory in the original C/C++ code.
@@ -130,7 +130,7 @@ At the moment there's a script called `build-doc.php` which will extract all met
 The underlying APIs of this package don't require [Laravel Nova](https://nova.laravel.com) and can be used outside of it. You'll just need to ensure `illuminate/support` at any version >5.0.
 
 ## Security
-If you discover any security related issues, please email [security@metabit.services](mailto:security@metabit.services?subject=Potential+security+issue+with+nova+homestead) instead of using the issue tracker.
+If you discover any security related issues, please email [security@metabit.services](mailto:security@metabit.services?subject=Potential+security+issue+with+nova+supervisor) instead of using the issue tracker.
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

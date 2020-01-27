@@ -5,7 +5,7 @@
             <div class="flex flex-wrap items-center flex-1 ml-4 justify-between">
                 <div class="flex flex-col">
                     <div class="text-xl font-bold">
-                        <router-link class="text-blue-600 underline" :to="{ name: 'homestead.show', params: { hypervisor: hypervisor.id, host: host.uuid } }">{{ host.name }}</router-link>
+                        <router-link class="text-blue-600 underline" :to="{ name: 'supervisor.show', params: { hypervisor: hypervisor.id, host: host.uuid } }">{{ host.name }}</router-link>
                     </div>
                     <div class="text-sm">
                         {{ host.memoryReadable }} GB Memory
@@ -48,7 +48,7 @@
         },
         computed: {
             hypervisor() {
-                return this.$store.state.homestead.hypervisor;
+                return this.$store.state.supervisor.hypervisor;
             }
         },
         methods: {

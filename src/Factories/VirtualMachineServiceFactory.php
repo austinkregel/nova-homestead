@@ -1,12 +1,12 @@
 <?php
 
-namespace Kregel\Homestead\Factories;
+namespace Kregel\Supervisor\Factories;
 
 use Illuminate\Auth\Access\AuthorizationException;
-use Kregel\Homestead\Filters\LibvirtAuthorizationFilter;
-use Kregel\Homestead\Filters\LibvirtConnectionFilter;
-use Kregel\Homestead\Models\Hypervisor;
-use Kregel\Homestead\Services\Libvirt\VirtualMachineService;
+use Kregel\Supervisor\Filters\LibvirtAuthorizationFilter;
+use Kregel\Supervisor\Filters\LibvirtConnectionFilter;
+use Kregel\Supervisor\Models\Hypervisor;
+use Kregel\Supervisor\Services\Libvirt\VirtualMachineService;
 
 class VirtualMachineServiceFactory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Nova;
+namespace Kregel\Supervisor\Nova;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource as NovaResource;

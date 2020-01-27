@@ -1,6 +1,6 @@
 <?php
 
-namespace Kregel\Homestead\Tests;
+namespace Kregel\Supervisor\Tests;
 
 use PHPUnit\Framework\TestCase;
 

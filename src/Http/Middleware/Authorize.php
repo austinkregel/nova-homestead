@@ -1,9 +1,9 @@
 <?php
 
-namespace Kregel\Homestead\Http\Middleware;
+namespace Kregel\Supervisor\Http\Middleware;
 
 use Laravel\Nova\Nova;
-use Kregel\Homestead\Homestead;
+use Kregel\Supervisor\Supervisor;
 
 class Authorize
 {
@@ -29,6 +29,6 @@ class Authorize
      */
     public function matchesTool($tool)
     {
-        return $tool instanceof Homestead;
+        return $tool instanceof Supervisor;
     }
 }

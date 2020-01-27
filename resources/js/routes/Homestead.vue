@@ -11,12 +11,12 @@
     export default {
         computed: {
             hypervisors() {
-                return this.$store.state.homestead.hypervisors;
+                return this.$store.state.supervisor.hypervisors;
             }
         },
         mounted() {
             this.$store.dispatch(Nova.E.FETCH_HYPERVISORS)
-            this.$store.commit('homestead/hosts', [])
+            this.$store.commit('supervisor/hosts', [])
         }
     }
 </script>

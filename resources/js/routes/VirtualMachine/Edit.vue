@@ -24,13 +24,13 @@
         },
         computed: {
             shouldBeOn() {
-                return this.$store.state.homestead.shouldBeOn;
+                return this.$store.state.supervisor.shouldBeOn;
             },
             host() {
-                return this.$store.state.homestead.host;
+                return this.$store.state.supervisor.host;
             },
             hypervisor() {
-                return this.$store.state.homestead.hypervisor;
+                return this.$store.state.supervisor.hypervisor;
             }
         }
     }

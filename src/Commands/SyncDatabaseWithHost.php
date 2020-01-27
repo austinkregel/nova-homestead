@@ -1,10 +1,10 @@
 <?php
 
-namespace Kregel\Homestead\Commands;
+namespace Kregel\Supervisor\Commands;
 
 use Illuminate\Console\Command;
-use Kregel\Homestead\Models\Hypervisor;
-use Kregel\Homestead\Services\Libvirt\VirtualMachineService;
+use Kregel\Supervisor\Models\Hypervisor;
+use Kregel\Supervisor\Services\Libvirt\VirtualMachineService;
 
 class SyncDatabaseWithHost extends Command
 {

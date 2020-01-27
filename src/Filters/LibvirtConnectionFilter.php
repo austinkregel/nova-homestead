@@ -1,8 +1,8 @@
 <?php
 
-namespace Kregel\Homestead\Filters;
+namespace Kregel\Supervisor\Filters;
 
-use Kregel\Homestead\Models\Hypervisor;
+use Kregel\Supervisor\Models\Hypervisor;
 
 class LibvirtConnectionFilter
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Kregel\Homestead\Models;
+namespace Kregel\Supervisor\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Kregel\Homestead\Filters\LibvirtConnectionFilter;
+use Kregel\Supervisor\Filters\LibvirtConnectionFilter;
 
 /**
- * Kregel\Homestead\Models\Hypervisor
+ * Kregel\Supervisor\Models\Hypervisor
  *
  * @property int $id
  * @property string $name
@@ -27,33 +27,33 @@ use Kregel\Homestead\Filters\LibvirtConnectionFilter;
  * @property string|null $host_os
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereHostOs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereHypervisor($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereKnownHosts($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereNoTty($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereNoVerify($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor wherePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor wherePort($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor wherePrivateKeyAbsolutePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereSocket($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereSshCommand($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereSshauth($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereTransportType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Homestead\Models\Hypervisor whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereHostOs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereHypervisor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereKnownHosts($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereNoTty($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereNoVerify($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor wherePort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor wherePrivateKeyAbsolutePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereSocket($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereSshCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereSshauth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereTransportType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Kregel\Supervisor\Models\Hypervisor whereUsername($value)
  * @mixin \Eloquent
  */
 class Hypervisor extends Model
 {
-    protected $table = 'homestead_hypervisors';
+    protected $table = 'supervisor_hypervisors';
 
     public const HYPERVISOR_LXC = 'lxc';
     public const HYPERVISOR_OPENVZ= 'vz';

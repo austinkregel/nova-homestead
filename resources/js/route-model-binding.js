@@ -8,23 +8,23 @@ export default async (store, { to, from}) => {
 
             let value = to.params[bindingKey];
 
-            if(!store.state.homestead){
+            if(!store.state.supervisor){
                 continue;
             }
             // This means we're not storing the value in our state.
-            if (typeof store.state.homestead[pluralKey] === 'undefined') {
+            if (typeof store.state.supervisor[pluralKey] === 'undefined') {
                 continue;
             }
 
-            let pluralValue = store.state.homestead[pluralKey];
+            let pluralValue = store.state.supervisor[pluralKey];
 
             // We're storing it, but we haven't received it from the server yet.
             if (pluralValue === null) {
                 if (typeof Nova.E['FETCH_' + pluralKey.toUpperCase()] === 'undefined') {
                     throw `Unknown fetch! ${'FETCH_' + pluralKey.toUpperCase()}`
                 }
-                let homesteadValue = Nova.E['FETCH_' + pluralKey.toUpperCase()];
-                pluralValue = await store.dispatch(homesteadValue, to, {root: true})
+                let supervisorValue = Nova.E['FETCH_' + pluralKey.toUpperCase()];
+                pluralValue = await store.dispatch(supervisorValue, to, {root: true})
             }
 
             if (!Array.isArray(pluralValue)) {
@@ -37,7 +37,7 @@ export default async (store, { to, from}) => {
             })[0]
 
             if (boundModel) {
-                store.commit('homestead/' + singularKey, boundModel, {root: true});
+                store.commit('supervisor/' + singularKey, boundModel, {root: true});
             }
         } catch (e) {
             console.log('We had an error in the route model binding', { to, bindingKey, e })
