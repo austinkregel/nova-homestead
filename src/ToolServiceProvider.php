@@ -5,8 +5,6 @@ namespace Kregel\Homestead;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Kregel\Homestead\Factories\VirtualMachineServiceFactory;
-use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Nova;
 use Kregel\Homestead\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
@@ -22,10 +20,6 @@ class ToolServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             $this->routes();
-        });
-
-        Nova::serving(function (ServingNova $event) {
-            //
         });
     }
 
